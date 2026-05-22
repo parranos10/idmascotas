@@ -25,7 +25,7 @@ def perfil_mascota(request, id):
     })
 
 def home(request):
-    return render(request, 'home.html', {'mascotas': mascotas})
+    return render(request, 'home.html')
 
 def registrar_mascota(request):
     if request.method == 'POST':
