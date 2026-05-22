@@ -21,7 +21,7 @@ class Mascota(models.Model):
 
         super().save(*args, **kwargs)
 
-        qr_texto = f"http://127.0.0.1:8000/mascota/{self.id}/"
+        qr_texto = f"https://petqr.onrender.com/{self.id}/"
 
         qr_img = qrcode.make(qr_texto)
 
