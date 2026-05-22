@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+
+        <div class="card shadow-sm">
+            {% if mascota.foto %}
+                <img src="{{ mascota.foto.url }}" class="card-img-top" style="max-height: 350px; object-fit: cover;">
+            {% endif %}
+
+            <div class="card-body p-4">
+                <h1 class="fw-bold">{{ mascota.nombre }}</h1>
+                <p class="text-muted">{{ mascota.raza }} · {{ mascota.edad }} años</p>
+
+                <hr>
+
+                <p><strong>Dueño:</strong> {{ mascota.duenio }}</p>
+                <p><strong>Teléfono:</strong> {{ mascota.telefono }}</p>
+
+                {% if mascota.informacion %}
+                    <p><strong>Información importante:</strong> {{ mascota.informacion }}</p>
+                {% endif %}
+
+                <a href="https://wa.me/593{{ mascota.telefono_whatsapp }}" class="btn btn-success w-100 mt-3">
+                    Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

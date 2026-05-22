@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center mb-5">
+    <h1 class="fw-bold">Identificación inteligente para mascotas</h1>
+    <p class="text-muted">Registra tu mascota, genera un QR único y ayuda a que vuelva a casa si se pierde.</p>
+
+    <a href="/registrar/" class="btn btn-primary btn-lg">
+        Registrar mascota
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="mb-4">Mascotas registradas</h3>
+
+        {% for mascota in mascotas %}
+            <div class="border rounded p-3 mb-3 bg-white">
+                <h5>{{ mascota.nombre }}</h5>
+                <p class="mb-2 text-muted">{{ mascota.raza }}</p>
+                <a href="/mascota/{{ mascota.id }}/" class="btn btn-outline-primary btn-sm">
+                    Ver perfil
+                </a>
+            </div>
+        {% empty %}
+            <p class="text-muted">Todavía no hay mascotas registradas.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
