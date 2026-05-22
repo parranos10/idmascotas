@@ -1,10 +1,28 @@
 from django.shortcuts import render, redirect
 from .forms import MascotaForm
 from .models import Mascota
+import qrcode
+from io import BytesIO
+import base64
 
 def perfil_mascota(request, id):
+
     mascota = Mascota.objects.get(id=id)
-    return render(request, 'perfil_mascota.html', {'mascota': mascota})
+
+    qr_texto = request.build_absolute_uri()
+
+    qr = qrcode.make(qr_texto)
+
+    buffer = BytesIO()
+
+    qr.save(buffer, format='PNG')
+
+    qr_base64 = base64.b64encode(buffer.getvalue()).decode()
+
+    return render(request, 'perfil_mascota.html', {
+        'mascota': mascota,
+        'qr_code': qr_base64
+    })
 
 def home(request):
     mascotas = Mascota.objects.all()
