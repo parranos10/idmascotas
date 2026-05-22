@@ -2,31 +2,90 @@
 
 {% block content %}
 
-<div class="text-center mb-5">
-    <h1 class="fw-bold">Identificación inteligente para mascotas</h1>
-    <p class="text-muted">Registra tu mascota, genera un QR único y ayuda a que vuelva a casa si se pierde.</p>
+<div class="text-center py-5">
 
-    <a href="/registrar/" class="btn btn-primary btn-lg">
+    <h1 class="display-4 fw-bold">
+        Identificación inteligente para mascotas
+    </h1>
+
+    <p class="lead text-muted mt-3">
+        Genera un código QR único para tu mascota y ayuda a que vuelva a casa si se pierde.
+    </p>
+
+    <a href="/registrar/" class="btn btn-primary btn-lg mt-4 px-5">
         Registrar mascota
     </a>
+
 </div>
 
-<div class="card shadow-sm">
-    <div class="card-body">
-        <h3 class="mb-4">Mascotas registradas</h3>
+<div class="row text-center mt-5">
 
-        {% for mascota in mascotas %}
-            <div class="border rounded p-3 mb-3 bg-white">
-                <h5>{{ mascota.nombre }}</h5>
-                <p class="mb-2 text-muted">{{ mascota.raza }}</p>
-                <a href="/mascota/{{ mascota.id }}/" class="btn btn-outline-primary btn-sm">
-                    Ver perfil
-                </a>
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4">
+            <div class="card-body p-4">
+
+                <h3>📱 Escaneo rápido</h3>
+
+                <p class="text-muted">
+                    Cualquier persona puede escanear el QR y acceder al perfil de la mascota.
+                </p>
+
             </div>
-        {% empty %}
-            <p class="text-muted">Todavía no hay mascotas registradas.</p>
-        {% endfor %}
+        </div>
     </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4">
+            <div class="card-body p-4">
+
+                <h3>🐶 Información importante</h3>
+
+                <p class="text-muted">
+                    Muestra contacto, datos médicos y detalles esenciales.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4">
+            <div class="card-body p-4">
+
+                <h3>❤️ Más posibilidades de regreso</h3>
+
+                <p class="text-muted">
+                    Facilita que tu mascota vuelva a casa de manera segura.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<footer class="text-center mt-5 pt-4">
+
+    <p class="text-muted mb-3">
+        Síguenos en redes sociales
+    </p>
+
+    <div class="d-flex justify-content-center gap-3">
+
+        <a href="https://instagram.com/TUUSUARIO"
+           target="_blank"
+           class="btn btn-outline-dark rounded-circle">
+            IG
+        </a>
+
+        <a href="https://tiktok.com/@TUUSUARIO"
+           target="_blank"
+           class="btn btn-outline-dark rounded-circle">
+            TT
+        </a>
+
+    </div>
+
+</footer>
 
 {% endblock %}

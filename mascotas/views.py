@@ -25,7 +25,6 @@ def perfil_mascota(request, id):
     })
 
 def home(request):
-    mascotas = Mascota.objects.all()
     return render(request, 'home.html', {'mascotas': mascotas})
 
 def registrar_mascota(request):
