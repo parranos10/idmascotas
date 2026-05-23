@@ -2,89 +2,221 @@
 
 {% block content %}
 
-<div class="text-center py-5">
+<section class="py-5 text-center">
 
-    <h1 class="display-4 fw-bold">
-        Identificación inteligente para mascotas
-    </h1>
+    <div class="container">
 
-    <p class="lead text-muted mt-3">
-        Genera un código QR único para tu mascota y ayuda a que vuelva a casa si se pierde.
-    </p>
+        <span class="badge bg-primary px-3 py-2 mb-3">
+            Protección inteligente para mascotas
+        </span>
 
-    <a href="/registrar/" class="btn btn-primary btn-lg mt-4 px-5">
-        Registrar mascota
-    </a>
+        <h1 class="display-3 fw-bold mb-4">
+            Tu mascota siempre identificada con un QR único
+        </h1>
 
-</div>
+        <p class="lead text-muted mx-auto mb-4" style="max-width: 700px;">
+            Genera un perfil digital para tu mascota y facilita que vuelva a casa
+            si se pierde. Escaneo rápido, contacto inmediato y acceso desde cualquier dispositivo.
+        </p>
 
-<div class="row text-center mt-5">
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
 
-    <div class="col-md-4 mb-4">
-        <div class="card border-0 shadow-sm h-100 rounded-4">
-            <div class="card-body p-4">
+            <a href="/registrar/" class="btn btn-primary btn-lg px-5 py-3 rounded-4 shadow-sm">
+                Registrar mascota
+            </a>
 
-                <h3>📱 Escaneo rápido</h3>
+            <a href="#como-funciona" class="btn btn-outline-dark btn-lg px-5 py-3 rounded-4">
+                Cómo funciona
+            </a>
 
-                <p class="text-muted">
-                    Cualquier persona puede escanear el QR y acceder al perfil de la mascota.
-                </p>
-
-            </div>
         </div>
+
     </div>
 
-    <div class="col-md-4 mb-4">
-        <div class="card border-0 shadow-sm h-100 rounded-4">
-            <div class="card-body p-4">
+</section>
 
-                <h3>🐶 Información importante</h3>
+<section class="py-5">
 
-                <p class="text-muted">
-                    Muestra contacto, datos médicos y detalles esenciales.
-                </p>
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            📱
+                        </div>
+
+                        <h3 class="fw-bold">
+                            Escaneo rápido
+                        </h3>
+
+                        <p class="text-muted">
+                            Cualquier persona puede escanear el QR y acceder inmediatamente
+                            al perfil de la mascota.
+                        </p>
+
+                    </div>
+                </div>
 
             </div>
-        </div>
-    </div>
 
-    <div class="col-md-4 mb-4">
-        <div class="card border-0 shadow-sm h-100 rounded-4">
-            <div class="card-body p-4">
+            <div class="col-md-4">
 
-                <h3>❤️ Más posibilidades de regreso</h3>
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
 
-                <p class="text-muted">
-                    Facilita que tu mascota vuelva a casa de manera segura.
-                </p>
+                        <div class="fs-1 mb-3">
+                            ❤️
+                        </div>
+
+                        <h3 class="fw-bold">
+                            Más posibilidades de regreso
+                        </h3>
+
+                        <p class="text-muted">
+                            Facilita el contacto inmediato con el dueño mediante WhatsApp
+                            y datos esenciales.
+                        </p>
+
+                    </div>
+                </div>
 
             </div>
+
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+
+                        <div class="fs-1 mb-3">
+                            🐶
+                        </div>
+
+                        <h3 class="fw-bold">
+                            Perfil inteligente
+                        </h3>
+
+                        <p class="text-muted">
+                            Guarda información importante, fotografías y detalles médicos
+                            relevantes de tu mascota.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
+
     </div>
 
-</div>
+</section>
 
-<footer class="text-center mt-5 pt-4">
+<section id="como-funciona" class="py-5 bg-white rounded-4 shadow-sm">
 
-    <p class="text-muted mb-3">
+    <div class="container text-center">
+
+        <h2 class="fw-bold mb-5">
+            ¿Cómo funciona?
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="p-4">
+
+                    <div class="display-5 fw-bold text-primary mb-3">
+                        1
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Registra tu mascota
+                    </h4>
+
+                    <p class="text-muted">
+                        Completa el formulario con los datos e información importante.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="p-4">
+
+                    <div class="display-5 fw-bold text-primary mb-3">
+                        2
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Genera el QR
+                    </h4>
+
+                    <p class="text-muted">
+                        Obtén un código QR único listo para imprimir y colocar en su collar.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="p-4">
+
+                    <div class="display-5 fw-bold text-primary mb-3">
+                        3
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Escaneo y contacto
+                    </h4>
+
+                    <p class="text-muted">
+                        Si alguien encuentra a tu mascota podrá contactarte rápidamente.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="text-center py-5">
+
+    <h5 class="fw-bold mb-3">
         Síguenos en redes sociales
-    </p>
+    </h5>
 
     <div class="d-flex justify-content-center gap-3">
 
         <a href="https://www.instagram.com/idsmascotas?igsh=dHQ5cXk4cWU4cWxv"
            target="_blank"
-           class="btn btn-outline-dark rounded-circle">
+           class="btn btn-outline-dark rounded-circle px-3 py-2">
             IG
         </a>
 
         <a href="https://www.tiktok.com/@ids.mascotas?_r=1&_t=ZS-96a9r5LhNNF"
            target="_blank"
-           class="btn btn-outline-dark rounded-circle">
+           class="btn btn-outline-dark rounded-circle px-3 py-2">
             TT
         </a>
 
     </div>
+
+    <p class="text-muted mt-4 mb-0">
+        © 2026 PetQR. Todos los derechos reservados.
+    </p>
 
 </footer>
 
