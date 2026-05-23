@@ -2,35 +2,115 @@
 
 {% block content %}
 
-<div class="row justify-content-center">
-    <div class="col-md-7">
+<div class="container py-5">
 
-        <div class="card shadow-sm">
-            {% if mascota.foto %}
-                <img src="{{ mascota.foto.url }}" class="card-img-top" style="max-height: 350px; object-fit: cover;">
-            {% endif %}
+    <div class="row justify-content-center">
 
-            <div class="card-body p-4">
-                <h1 class="fw-bold">{{ mascota.nombre }}</h1>
-                <p class="text-muted">{{ mascota.raza }} · {{ mascota.edad }} años</p>
+        <div class="col-lg-7">
 
-                <hr>
+            <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
 
-                <p><strong>Dueño:</strong> {{ mascota.duenio }}</p>
-                <p><strong>Teléfono:</strong> {{ mascota.telefono }}</p>
+                {% if mascota.foto %}
 
-                {% if mascota.informacion %}
-                    <p><strong>Información importante:</strong> {{ mascota.informacion }}</p>
+                    <img src="{{ mascota.foto.url }}"
+                         class="w-100"
+                         style="height: 400px; object-fit: cover;">
+
                 {% endif %}
 
-                <a href="https://wa.me/593{{ mascota.telefono_whatsapp }}" class="btn btn-success w-100 mt-3">
-                    Contactar por WhatsApp
-                </a>
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+
+                        <h1 class="fw-bold display-5 mb-2">
+                            {{ mascota.nombre }}
+                        </h1>
+
+                        <p class="text-muted fs-5">
+                            {{ mascota.raza }}
+                        </p>
+
+                    </div>
+
+                    <div class="row text-center mb-5">
+
+                        <div class="col">
+
+                            <h5 class="fw-bold">
+                                Edad
+                            </h5>
+
+                            <p class="text-muted">
+                                {{ mascota.edad }} años
+                            </p>
+
+                        </div>
+
+                        <div class="col">
+
+                            <h5 class="fw-bold">
+                                Dueño
+                            </h5>
+
+                            <p class="text-muted">
+                                {{ mascota.duenio }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="bg-light rounded-4 p-4 mb-4">
+
+                        <h5 class="fw-bold mb-3">
+                            Información importante
+                        </h5>
+
+                        <p class="text-muted mb-0">
+
+                            {% if mascota.informacion %}
+                                {{ mascota.informacion }}
+                            {% else %}
+                                No se registró información adicional.
+                            {% endif %}
+
+                        </p>
+
+                    </div>
+
+                    <div class="d-grid gap-3">
+
+                        <a href="https://wa.me/{{ mascota.telefono_whatsapp }}"
+                           class="btn btn-success btn-lg rounded-4 py-3 shadow-sm">
+
+                            <i class="fa-brands fa-whatsapp me-2"></i>
+
+                            Contactar al dueño
+
+                        </a>
+
+                    </div>
+
+                    <div class="text-center mt-5">
+
+                        <h5 class="fw-bold mb-3">
+                            QR de identificación
+                        </h5>
+
+                        <img src="data:image/png;base64,{{ qr_code }}"
+                             width="220"
+                             class="shadow-sm rounded-4 p-3 bg-white">
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
 
     </div>
+
 </div>
-<h3 class="mt-4">QR de identificacion</h3>
-<img src="data:image/png;base64,{{ qr_code }}" width="220">
+
 {% endblock %}
