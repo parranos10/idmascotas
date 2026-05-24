@@ -32,9 +32,17 @@ def registrar_mascota(request):
         form = MascotaForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
-            return redirect('home')
+            mascota = form.save()
+            return redirect('mascota_registrada', id=mascota.id)
     else:
         form = MascotaForm()
 
     return render(request, 'registrar_mascota.html', {'form': form})
+
+def mascota_registrada(request, id):
+    mascota = Mascota.objects.get(id=id)
+    perfil_url = request.build_absolute_uri(f'/mascota/{mascota.id}/')
+    return render(request, 'mascota_registrada.html', {
+        'mascota': mascota,
+        'perfil_url': perfil_url
+    })
