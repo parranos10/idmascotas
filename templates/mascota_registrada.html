@@ -2,38 +2,45 @@
 
 {% block content %}
 
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-7">
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
 
-            <div class="card border-0 shadow-lg rounded-5">
-                <div class="card-body p-5 text-center">
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
 
-                    <div class="display-4 mb-3">✅</div>
+                    <div class="bg-primary text-white text-center p-5">
+                        <div class="display-3 mb-3">✅</div>
 
-                    <h1 class="fw-bold mb-3">
-                        Mascota registrada correctamente
-                    </h1>
+                        <h1 class="fw-bold mb-2">
+                            Mascota registrada
+                        </h1>
 
-                    <p class="text-muted mb-4">
-                        El perfil digital de {{ mascota.nombre }} ya está listo.
-                        Usa este enlace para acceder al perfil desde el QR.
-                    </p>
+                        <p class="mb-0 fs-5 opacity-75">
+                            El perfil digital de {{ mascota.nombre }} está listo.
+                        </p>
+                    </div>
 
-                    
+                    <div class="card-body p-5 text-center">
 
-                    <div class="d-grid gap-3">
-                        <a href="/mascota/{{ mascota.id }}/" class="btn btn-primary btn-lg rounded-4">
-                            Ver mascota registrada
-                        </a>
+                        <p class="text-muted fs-5 mb-4">
+                            Ya puedes ver cómo se mostrará la información cuando alguien escanee el QR.
+                        </p>
 
-                        <a href="/registrar/" class="btn btn-outline-dark btn-lg rounded-4">
-                            Registrar otra mascota
-                        </a>
+                        <div class="d-grid gap-3">
+                            <a href="/mascota/{{ mascota.id }}/" class="btn btn-primary btn-lg rounded-4 py-3">
+                                Ver mascota registrada
+                            </a>
 
-                        <a href="/" class="btn btn-link text-muted">
-                            Volver al inicio
-                        </a>
+                            <a href="/registrar/" class="btn btn-outline-dark btn-lg rounded-4 py-3">
+                                Registrar otra mascota
+                            </a>
+
+                            <a href="/" class="btn btn-link text-muted">
+                                Volver al inicio
+                            </a>
+                        </div>
+
                     </div>
 
                 </div>
@@ -41,6 +48,6 @@
 
         </div>
     </div>
-</div>
+</section>
 
 {% endblock %}

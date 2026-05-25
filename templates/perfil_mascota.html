@@ -2,115 +2,94 @@
 
 {% block content %}
 
-<div class="container py-5">
+<section class="py-5">
+    <div class="container">
 
-    <div class="row justify-content-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
 
-        <div class="col-lg-7">
+                <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
 
-            <div class="card border-0 shadow-lg rounded-5 overflow-hidden">
+                    {% if mascota.foto %}
+                        <img src="{{ mascota.foto.url }}"
+                             class="w-100"
+                             style="height: 420px; object-fit: cover;">
+                    {% else %}
+                        <div class="bg-primary text-white text-center p-5">
+                            <div class="display-1">🐶</div>
+                        </div>
+                    {% endif %}
 
-                {% if mascota.foto %}
+                    <div class="card-body p-4 p-md-5">
 
-                    <img src="{{ mascota.foto.url }}"
-                         class="w-100"
-                         style="height: 400px; object-fit: cover;">
+                        <div class="text-center mb-4">
+                            <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 mb-3">
+                                Perfil verificado
+                            </span>
 
-                {% endif %}
+                            <h1 class="display-5 fw-bold mb-2">
+                                {{ mascota.nombre }}
+                            </h1>
 
-                <div class="card-body p-5">
-
-                    <div class="text-center mb-4">
-
-                        <h1 class="fw-bold display-5 mb-2">
-                            {{ mascota.nombre }}
-                        </h1>
-
-                        <p class="text-muted fs-5">
-                            {{ mascota.raza }}
-                        </p>
-
-                    </div>
-
-                    <div class="row text-center mb-5">
-
-                        <div class="col">
-
-                            <h5 class="fw-bold">
-                                Edad
-                            </h5>
-
-                            <p class="text-muted">
-                                {{ mascota.edad }} años
+                            <p class="text-muted fs-5 mb-0">
+                                {{ mascota.raza }} · {{ mascota.edad }} años
                             </p>
-
                         </div>
 
-                        <div class="col">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="bg-light rounded-4 p-4 h-100">
+                                    <small class="text-muted">Dueño</small>
+                                    <h5 class="fw-bold mb-0">{{ mascota.duenio }}</h5>
+                                </div>
+                            </div>
 
-                            <h5 class="fw-bold">
-                                Dueño
-                            </h5>
-
-                            <p class="text-muted">
-                                {{ mascota.duenio }}
-                            </p>
-
+                            <div class="col-md-6">
+                                <div class="bg-light rounded-4 p-4 h-100">
+                                    <small class="text-muted">Contacto</small>
+                                    <h5 class="fw-bold mb-0">{{ mascota.telefono }}</h5>
+                                </div>
+                            </div>
                         </div>
 
-                    </div>
+                        <div class="bg-light rounded-4 p-4 mb-4">
+                            <h5 class="fw-bold mb-3">Información importante</h5>
 
-                    <div class="bg-light rounded-4 p-4 mb-4">
-
-                        <h5 class="fw-bold mb-3">
-                            Información importante
-                        </h5>
-
-                        <p class="text-muted mb-0">
-
-                            {% if mascota.informacion %}
-                                {{ mascota.informacion }}
-                            {% else %}
-                                No se registró información adicional.
-                            {% endif %}
-
-                        </p>
-
-                    </div>
-
-                    <div class="d-grid gap-3">
+                            <p class="text-muted mb-0">
+                                {% if mascota.informacion %}
+                                    {{ mascota.informacion }}
+                                {% else %}
+                                    No se registró información adicional.
+                                {% endif %}
+                            </p>
+                        </div>
 
                         <a href="https://wa.me/{{ mascota.telefono_whatsapp }}"
-                           class="btn btn-success btn-lg rounded-4 py-3 shadow-sm">
-
+                           class="btn btn-success btn-lg w-100 rounded-4 py-3 shadow-sm mb-4">
                             <i class="fa-brands fa-whatsapp me-2"></i>
-
                             Contactar al dueño
-
                         </a>
 
-                    </div>
+                        <div class="text-center border-top pt-4">
+                            <h5 class="fw-bold mb-3">QR de identificación</h5>
 
-                    <div class="text-center mt-5">
+                            <img src="data:image/png;base64,{{ qr_code }}"
+                                 width="210"
+                                 class="rounded-4 shadow-sm p-3 bg-white">
 
-                        <h5 class="fw-bold mb-3">
-                            QR de identificación
-                        </h5>
-
-                        <img src="data:image/png;base64,{{ qr_code }}"
-                             width="220"
-                             class="shadow-sm rounded-4 p-3 bg-white">
+                            <p class="text-muted small mt-3 mb-0">
+                                Este QR abre directamente el perfil digital de {{ mascota.nombre }}.
+                            </p>
+                        </div>
 
                     </div>
 
                 </div>
 
             </div>
-
         </div>
 
     </div>
-
-</div>
+</section>
 
 {% endblock %}

@@ -2,45 +2,83 @@
 
 {% block content %}
 
-<div class="row justify-content-center">
-    <div class="col-lg-7 col-md-9">
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center g-5">
 
-        <div class="card border-0 shadow-sm rounded-4">
-            <div class="card-body p-4 p-md-5">
+            <div class="col-lg-5">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">
+                    Registro digital
+                </span>
 
-                <h2 class="fw-bold mb-2">Registrar mascota</h2>
-                <p class="text-muted mb-4">
-                    Completa los datos para crear su perfil y generar su QR único.
+                <h1 class="fw-bold display-5 mb-3">
+                    Crea el perfil inteligente de tu mascota
+                </h1>
+
+                <p class="text-muted fs-5">
+                    Completa los datos principales para generar un perfil único y accesible mediante QR.
                 </p>
 
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-
-                    {% for field in form %}
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">
-                                {{ field.label }}
-                            </label>
-
-                            {{ field }}
-
-                            {% if field.errors %}
-                                <div class="text-danger small mt-1">
-                                    {{ field.errors }}
-                                </div>
-                            {% endif %}
+                <div class="mt-4">
+                    <div class="d-flex gap-3 mb-3">
+                        <div class="fs-3">🐶</div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Información esencial</h6>
+                            <p class="text-muted mb-0">Contacto, datos médicos y detalles importantes.</p>
                         </div>
-                    {% endfor %}
+                    </div>
 
-                    <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
-                        Guardar mascota
-                    </button>
-                </form>
-
+                    <div class="d-flex gap-3">
+                        <div class="fs-3">📱</div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Acceso rápido</h6>
+                            <p class="text-muted mb-0">El perfil podrá abrirse desde el QR del collar.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-lg rounded-5">
+                    <div class="card-body p-4 p-md-5">
+
+                        <h3 class="fw-bold mb-2">Datos de la mascota</h3>
+                        <p class="text-muted mb-4">Ingresa la información que verá quien escanee el QR.</p>
+
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            {% for field in form %}
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold">
+                                        {{ field.label }}
+                                    </label>
+
+                                    {{ field }}
+
+                                    {% if field.help_text %}
+                                        <small class="text-muted">{{ field.help_text }}</small>
+                                    {% endif %}
+
+                                    {% if field.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {{ field.errors }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+
+                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-4 py-3 fw-semibold shadow-sm">
+                                Registrar mascota
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
+</section>
 
 {% endblock %}
