@@ -1,5 +1,8 @@
 from pathlib import Path
 from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # BASE DIRECTORY
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -12,6 +15,8 @@ ALLOWED_HOSTS = ['petqr.onrender.com', '127.0.0.1']
 
 # APPLICATIONS
 INSTALLED_APPS = [
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,6 +126,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # DEFAULT PRIMARY KEY
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'parranos4',
+    'API_KEY': '964466697263111',
+    'API_SECRET': 'CSIetGrmPV2kzrkMkpRrLubettg',
+}
 
 
 
