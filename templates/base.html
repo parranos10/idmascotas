@@ -29,13 +29,70 @@
         transform: translateY(-1px);
     }
     </style>
+    :root {
+        --ids-black: #050505;
+        --ids-dark: #0b0b0b;
+        --ids-red: #e50914;
+        --ids-red-glow: rgba(229, 9, 20, 0.45);
+        --ids-white: #ffffff;
+        --ids-gray: #b8b8b8;
+    }
+
+    .ids-body {
+        background: var(--ids-black);
+        color: var(--ids-white);
+    }
+
+    .navbar {
+        background: rgba(0, 0, 0, 0.92) !important;
+        border-bottom: 1px solid rgba(229, 9, 20, 0.25);
+        backdrop-filter: blur(12px);
+    }
+
+    .navbar a {
+        color: white !important;
+    }
+
+    .btn-primary {
+        background: var(--ids-red);
+        border-color: var(--ids-red);
+        box-shadow: 0 0 18px var(--ids-red-glow);
+    }
+
+    .btn-primary:hover {
+        background: #ff1a1a;
+        border-color: #ff1a1a;
+        transform: translateY(-1px);
+    }
+
+    .ids-card {
+        background: #111;
+        border: 1px solid rgba(229, 9, 20, 0.28);
+        color: white;
+        box-shadow: 0 0 25px rgba(229, 9, 20, 0.12);
+    }
+
+    .ids-muted {
+        color: var(--ids-gray);
+    }
+
+    .ids-red-text {
+        color: var(--ids-red);
+    }
+
+    .ids-icon {
+        color: var(--ids-red);
+        font-size: 2rem;
+        text-shadow: 0 0 14px var(--ids-red-glow);
+    }
+</style>
 
 
 
 
 </head>
 
-<body class="bg-light">
+<body class="ids-body">
 
 <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
     <div class="container py-2">
