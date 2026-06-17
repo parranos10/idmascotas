@@ -140,10 +140,16 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'parranos4',
+    'CLOUD_NAME': 'dcutgvqcy',
     'API_KEY': '964466697263111',
     'API_SECRET': 'CSIetGrmPV2kzrkMkpRrLubettg',
 }
+cloudinary.config(
+    cloud_name="dcutgvqcy",
+    api_key="964466697263111",
+    api_secret="CSIetGrmPV2kzrkMkpRrLubettg",
+    secure=True
+)
 
 
 
