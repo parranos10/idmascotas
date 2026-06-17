@@ -1,3 +1,5 @@
+from django.core.mail import send_mail
+from django.conf import settings
 from django.shortcuts import render, redirect
 from .forms import MascotaForm
 from .models import Mascota
@@ -31,8 +33,34 @@ def registrar_mascota(request):
     if request.method == 'POST':
         form = MascotaForm(request.POST, request.FILES)
 
+        
+
         if form.is_valid():
             mascota = form.save()
+
+            perfil_url = request.build_absolute_uri(
+                f'/mascota/{mascota.id}/'
+            )
+
+            mensaje = f"""
+            Nueva mascota registrada
+
+            Nombre: {mascota.nombre}
+            Raza: {mascota.raza}
+            Edad: {mascota.edad}
+            Dueño: {mascota.duenio}
+            Teléfono: {mascota.telefono}
+
+            Perfil: 
+            {perfil_url}
+            """
+            send_mail(
+                subject=f"Nueva mascota registrada: {mascota.nombre}",
+                message=mensaje,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=['idsmascotas@gmail.com'],
+                fail_silently=False,
+            )
             return redirect('mascota_registrada', id=mascota.id)
     else:
         form = MascotaForm()
